@@ -1,0 +1,15 @@
+# --- Large source backup: never commit (147 MB WordPress backup) ---
+backup-skyfreq_com-*.zip
+*.zip
+
+# --- Redundant local asset stash (already captured in public/wp-content/uploads) ---
+# Remove this line if you want the curated originals in the repo.
+assets-old-website/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Node (only if a build tooling is added later) ---
+node_modules/

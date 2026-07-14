@@ -1,0 +1,16 @@
+# Netlify configuration for the Sky Frequency static site.
+# The site is a pre-built static mirror — no build step required.
+
+[build]
+  publish = "public"
+  command = ""
+
+# Serve pretty URLs (/about/ -> /about/index.html) — Netlify does this by default.
+# A custom 404 lives at public/404.html and is served automatically.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
