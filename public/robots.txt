@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Assets must stay crawlable so Google can render pages correctly.
+# /bill-pay/ is intentionally NOT disallowed here -- it uses a noindex meta tag,
+# and blocking it would prevent crawlers from ever seeing that directive.
+
+Sitemap: https://skyfreq.com/sitemap.xml
