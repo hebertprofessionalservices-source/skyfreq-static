@@ -125,11 +125,23 @@
 
   /* ---------- styles ---------- */
   var css =
-  "#sfchat-bubble{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;" +
-    "background:" + NAVY + ";border:none;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.3);" +
+  "#sfchat-bubble{position:fixed;right:20px;bottom:20px;width:62px;height:62px;min-width:62px;padding:0;" +
+    "box-sizing:border-box;border-radius:50%;line-height:1;" +
+    "background:" + BLUE + " !important;border:2px solid #fff;cursor:pointer;" +
+    "box-shadow:0 4px 18px rgba(0,0,0,.45);" +
     "z-index:99998;display:flex;align-items:center;justify-content:center;transition:transform .15s}" +
-  "#sfchat-bubble:hover{transform:scale(1.08)}" +
-  "#sfchat-bubble svg{width:28px;height:28px;fill:#fff}" +
+  "#sfchat-bubble:hover{transform:scale(1.08);background:" + BLUE + " !important}" +
+  "#sfchat-bubble svg{width:30px;height:30px;fill:#fff !important;display:block}" +
+  "#sfchat-bubble svg path{fill:#fff !important}" +
+  "#sfchat-badge{position:absolute;top:-4px;right:-4px;width:20px;height:20px;border-radius:50%;" +
+    "background:#e53935;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;" +
+    "justify-content:center;border:2px solid #fff;box-sizing:border-box;" +
+    "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}" +
+  "#sfchat-label{position:fixed;right:20px;bottom:90px;background:#fff;color:" + NAVY + ";" +
+    "font-size:13px;font-weight:700;padding:7px 14px;border-radius:16px;z-index:99998;" +
+    "box-shadow:0 3px 12px rgba(0,0,0,.35);pointer-events:none;" +
+    "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}" +
+  ".sfchat-hidden{display:none !important}" +
   "#sfchat-panel{position:fixed;right:20px;bottom:92px;width:min(360px,calc(100vw - 32px));" +
     "height:min(520px,calc(100vh - 120px));background:#fff;border-radius:12px;z-index:99999;" +
     "box-shadow:0 8px 32px rgba(0,0,0,.35);display:none;flex-direction:column;overflow:hidden;" +
@@ -168,9 +180,16 @@
   /* ---------- DOM ---------- */
   var bubble = document.createElement("button");
   bubble.id = "sfchat-bubble";
+  bubble.style.position = "fixed"; // guard against site button styles
   bubble.setAttribute("aria-label", "Chat with Sky Frequency");
   bubble.innerHTML =
-    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-9 9H7V9h4v2zm6 0h-4V9h4v2z"/></svg>';
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="#fff"><path fill="#fff" d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-9 9H7V9h4v2zm6 0h-4V9h4v2z"/></svg>' +
+    '<span id="sfchat-badge" aria-hidden="true">1</span>';
+
+  var label = document.createElement("div");
+  label.id = "sfchat-label";
+  label.setAttribute("aria-hidden", "true");
+  label.textContent = "Chat Now";
 
   var panel = document.createElement("div");
   panel.id = "sfchat-panel";
@@ -187,7 +206,17 @@
     '<button id="sfchat-send" type="submit">Send</button></form>';
 
   document.body.appendChild(bubble);
+  document.body.appendChild(label);
   document.body.appendChild(panel);
+
+  /* once the visitor has opened the chat, stop nagging for the rest of the visit */
+  function hideAttention() {
+    label.classList.add("sfchat-hidden");
+    var badge = document.getElementById("sfchat-badge");
+    if (badge) badge.classList.add("sfchat-hidden");
+    sessionStorage.setItem("sfchat-seen", "1");
+  }
+  if (sessionStorage.getItem("sfchat-seen") === "1") hideAttention();
 
   var msgs = panel.querySelector("#sfchat-msgs");
   var chipsBox = panel.querySelector("#sfchat-chips");
@@ -250,6 +279,7 @@
   }
 
   function openPanel() {
+    hideAttention();
     panel.classList.add("sfchat-open");
     sessionStorage.setItem("sfchat-open", "1");
     if (!msgs.childNodes.length) {
