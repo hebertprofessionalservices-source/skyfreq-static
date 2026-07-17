@@ -6,6 +6,10 @@ backup-skyfreq_com-*.zip
 # Remove this line if you want the curated originals in the repo.
 assets-old-website/
 
+# --- New 2026 brand assets: source originals (158MB). Web-sized copies go in
+# public/ when used; the full-res originals stay out of the repo. ---
+assets-new/
+
 # --- OS / editor cruft ---
 .DS_Store
 Thumbs.db
