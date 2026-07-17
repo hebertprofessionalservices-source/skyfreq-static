@@ -1,0 +1,111 @@
+/* Sky Frequency — mobile header/menu repair.
+   The static mirror is missing Astra's icon font, and the flyout menu rendered
+   as a transparent overlay. These overrides give mobile a solid branded header
+   and a readable navy flyout that matches the desktop color scheme.
+   Scoped to Astra's mobile header breakpoint; desktop is untouched. */
+
+@media (max-width: 921px) {
+
+  /* ---- header bar: solid brand navy, always readable ---- */
+  .main-header-bar,
+  .ast-mobile-header-wrap .main-header-bar,
+  body.ast-theme-transparent-header .main-header-bar {
+    background-color: #192546 !important;
+    background-image: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
+  body.ast-theme-transparent-header .ast-above-header {
+    background-color: #10192f !important; /* phone-number strip */
+  }
+  .ast-above-header, .ast-above-header a { color: #fff !important; }
+
+  /* ---- menu toggle: unicode icons, no font dependency ---- */
+  .menu-toggle {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, .35) !important;
+    border-radius: 6px !important;
+    color: #fff !important;
+    padding: 6px 12px !important;
+  }
+  .menu-toggle .menu-toggle-icon::before {
+    content: "\2630" !important;             /* ☰ */
+    font-family: inherit !important;
+    font-size: 20px;
+    color: #fff;
+    line-height: 1;
+  }
+  body.ast-main-header-nav-open .menu-toggle .menu-toggle-icon::before {
+    content: "\2715" !important;             /* ✕ */
+  }
+  .menu-toggle .mobile-menu-wrap .mobile-menu { color: #fff !important; }
+
+  /* submenu arrow toggles reference the missing icon font — no submenus exist */
+  .ast-menu-toggle { display: none !important; }
+
+  /* ---- Astra's flyout is unrecoverable in the mirror (its open-state CSS is
+          missing and the element refuses inline !important overrides). Remove it;
+          /assets/mobile-menu.js builds a replacement panel from the same links. ---- */
+  body .main-header-bar-navigation,
+  body.ast-flyout-menu-enable .main-header-bar-navigation,
+  .site-header .main-header-bar-navigation,
+  #masthead .main-header-bar-navigation {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  .main-header-bar-navigation .main-header-bar-menu,
+  .main-header-bar-navigation .main-header-menu {
+    background-color: #192546 !important;
+    max-width: 300px;
+    height: 100%;
+    padding-top: 68px !important;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, .45);
+  }
+
+  /* ---- menu items: white text, brand-blue accent, sane spacing ---- */
+  .main-header-menu .menu-item > .menu-link,
+  .main-header-menu .menu-item > a {
+    color: #fff !important;
+    font-size: 17px !important;
+    font-weight: 600;
+    line-height: 1.4 !important;
+    padding: 14px 26px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+  .main-header-menu .menu-item > .menu-link:hover,
+  .main-header-menu .menu-item > a:hover,
+  .main-header-menu .current-menu-item > .menu-link,
+  .main-header-menu .current-menu-item > a {
+    color: #2ea3f2 !important;
+    background: rgba(46, 163, 242, .08) !important;
+  }
+
+  /* ---- Services submenu: arrows used the missing icon font, so show the
+          submenu permanently expanded and indented instead ---- */
+  .main-header-menu { overflow-y: auto; }
+  .main-header-menu .sub-menu {
+    display: block !important;
+    position: static !important;
+    visibility: inherit !important;
+    opacity: 1 !important;
+    background: #10192f !important;
+    box-shadow: none !important;
+  }
+  .main-header-menu .sub-menu .menu-item > .menu-link,
+  .main-header-menu .sub-menu .menu-item > a {
+    font-size: 14.5px !important;
+    font-weight: 400;
+    padding: 10px 26px 10px 42px !important;
+    border-bottom: none;
+  }
+
+  /* ---- hero / page titles: 85px desktop size is unreadable at 375px ---- */
+  .uael-infobox-title-prefix,
+  .uael-infobox-title {
+    font-size: clamp(28px, 9vw, 44px) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* logo sizing so the white logo sits cleanly in the navy bar */
+  .site-logo-img img { max-height: 48px !important; width: auto !important; }
+}
