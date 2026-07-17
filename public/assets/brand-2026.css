@@ -1,0 +1,38 @@
+/* Sky Frequency 2026 rebrand accents.
+   The 2026 logo promotes orange (#FA8B09, the "NETWORKS" wordmark) to a primary
+   brand accent. Applied here to calls-to-action site-wide. Navy (#192546) and
+   blue remain; blue is still present in the logo mark. */
+
+/* Elementor CTA buttons (CONTACT US, LET'S TALK, Read More buttons) */
+.elementor-button,
+.elementor-button-link {
+  background-color: #FA8B09 !important;
+}
+.elementor-button:hover,
+.elementor-button-link:hover {
+  background-color: #d97507 !important;
+}
+
+/* Salesforce lead-form submit buttons */
+.sf_form input[type="submit"] {
+  background-color: #FA8B09 !important;
+  border-color: #FA8B09 !important;
+}
+.sf_form input[type="submit"]:hover {
+  background-color: #d97507 !important;
+  border-color: #d97507 !important;
+}
+
+/* Mobile menu call button (defined in mobile-menu.js) */
+#sfmenu-panel .sfmenu-call {
+  background: #FA8B09 !important;
+}
+
+/* Header logo sizing: the 2026 lockup is wider than the old SVG */
+.site-logo-img img.custom-logo {
+  max-width: 210px;
+  height: auto;
+}
+@media (max-width: 921px) {
+  .site-logo-img img.custom-logo { max-width: 170px; }
+}
