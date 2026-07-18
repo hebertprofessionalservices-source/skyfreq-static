@@ -104,7 +104,7 @@
   [data-elementor-type="wp-page"] > .elementor-top-section:first-child .uael-infobox-title-prefix,
   [data-elementor-type="wp-page"] > .elementor-section:first-child .uael-infobox-title,
   [data-elementor-type="wp-page"] > .elementor-section:first-child .uael-infobox-title-prefix {
-    font-size: 68px !important;
+    font-size: 62px !important;
   }
 }
 
@@ -145,6 +145,9 @@
 [data-elementor-type="wp-page"] > .elementor-section:first-child .elementor-inner-section > .elementor-container > .elementor-column {
   width: 100% !important;
 }
+/* Home hero: the title's inner section has an EMPTY second flex column that
+   forces the title into half width (flex shrinks both 100% columns to 50%). */
+.elementor-element-252417f { display: none !important; }
 .uael-infobox-title,
 .uael-infobox-title-prefix {
   overflow-wrap: normal !important;
