@@ -162,6 +162,18 @@
   margin-bottom: 0 !important;
 }
 
+/* Services page: the "Serving Mississippi…" intro paragraph ran the full
+   container width (~1245px), too wide to read comfortably. Cap the blurb at
+   about half; the infobox is left-aligned so it stays on the left. */
+body.page-id-751 .elementor-element-09a1813 .uael-infobox-text-wrap {
+  max-width: 620px;
+}
+@media (max-width: 921px) {
+  body.page-id-751 .elementor-element-09a1813 .uael-infobox-text-wrap {
+    max-width: none;
+  }
+}
+
 /* hero spacer widgets: dead vertical air from the old layout */
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .elementor-widget-spacer,
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .elementor-widget-spacer,
