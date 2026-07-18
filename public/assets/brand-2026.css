@@ -117,6 +117,16 @@
   max-width: 820px;
 }
 
+/* hero text: nudge in from the left edge on desktop */
+@media (min-width: 922px) {
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child > .elementor-container > .elementor-column:first-child,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child,
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container > .elementor-column:first-child,
+  [data-elementor-type="wp-page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child {
+    padding-left: 190px !important;
+  }
+}
+
 /* hero spacer widgets: dead vertical air from the old layout */
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .elementor-widget-spacer,
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .elementor-widget-spacer,
@@ -162,8 +172,15 @@
    infoboxes, not image widgets, so they are unaffected. */
 [data-elementor-type="wp-page"] .elementor-widget-image .elementor-widget-container img,
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] .elementor-widget-image .elementor-widget-container img {
-  max-width: 320px !important;
+  max-width: min(400px, 100%) !important;
   height: auto !important;
+}
+/* photo polish to match the About page cards -- photos only; transparent
+   PNG graphics would show an ugly rectangular shadow box */
+[data-elementor-type="wp-page"] .elementor-widget-image .elementor-widget-container img[src$=".jpg"],
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] .elementor-widget-image .elementor-widget-container img[src$=".jpg"] {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(25, 37, 70, .16);
 }
 
 /* ---- service pages: hero CTA sits right-aligned beside the title ----
