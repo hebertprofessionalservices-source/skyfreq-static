@@ -160,6 +160,10 @@
   opacity: .94;
   text-wrap: pretty;   /* avoid single-word orphan lines */
 }
+/* home hero: trim bottom padding */
+body.page-id-4 [data-elementor-post-type="page"] > .elementor-section:first-child {
+  padding-bottom: 24px !important;
+}
 /* home hero: balance the short paragraph into even lines */
 body.page-id-4 [data-elementor-post-type="page"] > .elementor-section:first-child .uael-infobox-text p {
   text-wrap: balance;
