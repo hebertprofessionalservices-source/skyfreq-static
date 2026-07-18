@@ -28,11 +28,72 @@
   background: #FA8B09 !important;
 }
 
-/* Header logo sizing: the 2026 lockup is wider than the old SVG */
+/* Header logo sizing: the 2026 lockup is wider than the old SVG.
+   High-specificity + !important to beat Astra's customizer width. */
+#masthead .site-logo-img .custom-logo-link img,
 .site-logo-img img.custom-logo {
-  max-width: 210px;
-  height: auto;
+  max-width: 230px !important;
+  height: auto !important;
 }
 @media (max-width: 921px) {
-  .site-logo-img img.custom-logo { max-width: 170px; }
+  #masthead .site-logo-img .custom-logo-link img,
+  .site-logo-img img.custom-logo { max-width: 170px !important; }
+}
+
+/* ---- 2026 refresh: compact header ---- */
+.ast-above-header { padding-top: 8px !important; }
+
+/* ---- 2026 refresh: compact hero sections (the city-background banners) ----
+   Elementor gave every hero 400px top / 120px bottom padding; pull content up.
+   The header overlays the hero (transparent header), so keep enough clearance. */
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child,
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child,
+[data-elementor-type="wp-page"] > .elementor-top-section:first-child,
+[data-elementor-type="wp-page"] > .elementor-section:first-child {
+  padding-top: 180px !important;
+  padding-bottom: 76px !important;
+  min-height: 0 !important;
+}
+@media (max-width: 921px) {
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child,
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child,
+  [data-elementor-type="wp-page"] > .elementor-section:first-child {
+    padding-top: 120px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+/* ---- 2026 refresh: page titles ----
+   Drop the dated underline everywhere; tighten line-height. Desktop size comes
+   down from 85px; mobile keeps the clamp from mobile-fix.css (this sheet loads
+   later, so the desktop size must stay inside the min-width query). */
+.uael-infobox-title,
+.uael-infobox-title-prefix,
+.uael-infobox-title a {
+  text-decoration: none !important;
+}
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .uael-infobox-title,
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .uael-infobox-title-prefix,
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .uael-infobox-title,
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .uael-infobox-title-prefix,
+[data-elementor-type="wp-page"] > .elementor-top-section:first-child .uael-infobox-title,
+[data-elementor-type="wp-page"] > .elementor-top-section:first-child .uael-infobox-title-prefix,
+[data-elementor-type="wp-page"] > .elementor-section:first-child .uael-infobox-title,
+[data-elementor-type="wp-page"] > .elementor-section:first-child .uael-infobox-title-prefix {
+  line-height: 1.12 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+@media (min-width: 922px) {
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .uael-infobox-title,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .uael-infobox-title-prefix,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .uael-infobox-title,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .uael-infobox-title-prefix,
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child .uael-infobox-title,
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child .uael-infobox-title-prefix,
+  [data-elementor-type="wp-page"] > .elementor-section:first-child .uael-infobox-title,
+  [data-elementor-type="wp-page"] > .elementor-section:first-child .uael-infobox-title-prefix {
+    font-size: 68px !important;
+  }
 }
