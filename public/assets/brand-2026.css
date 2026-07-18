@@ -156,6 +156,55 @@
 
 /* ---- nav: Services submenu arrow (Astra icon font is missing; the empty
         glyph rendered as a small square). Draw it with a unicode caret. ---- */
+/* ---- service pages: standard content-image size ----
+   Section photos previously rendered at full column width (~620px); the
+   client wants roughly half that as the default. Icons live inside UAEL
+   infoboxes, not image widgets, so they are unaffected. */
+[data-elementor-type="wp-page"] .elementor-widget-image .elementor-widget-container img {
+  max-width: 320px !important;
+  height: auto !important;
+}
+
+/* ---- service pages: hero CTA sits right-aligned beside the title ----
+   (wp-page wrappers are exactly the /services pages; home/about/contact are
+   wp-post wrappers and keep the CTA under the text or omit it) */
+[data-elementor-type="wp-page"] > .elementor-section:first-child > .elementor-container,
+[data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container {
+  position: relative;
+}
+@media (min-width: 922px) {
+  /* Elementor positions columns/widget-wraps; neutralize inside the hero so
+     the CTA's absolute offsets resolve against the container, then pin the
+     CTA to the content edge (~under the nav). */
+  [data-elementor-type="wp-page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child,
+  [data-elementor-type="wp-page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child > .elementor-widget-wrap,
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container > .elementor-column:first-child,
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container > .elementor-column:first-child > .elementor-widget-wrap {
+    position: static !important;
+  }
+  [data-elementor-type="wp-page"] > .elementor-section:first-child .sf-hero-cta,
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child .sf-hero-cta {
+    position: absolute;
+    right: max(24px, calc((100% - 1140px) / 2 + 10px));
+    top: 8px;
+    margin-top: 0;
+  }
+}
+
+/* ---- contact page: tighter lead form (~20% smaller) ---- */
+body.page-id-688 form.sf_form_light {
+  max-width: 470px;
+}
+body.page-id-688 form.sf_form_light input[type="text"],
+body.page-id-688 form.sf_form_light textarea {
+  padding: 8px 10px !important;
+  font-size: 14px !important;
+}
+body.page-id-688 form.sf_form_light label,
+body.page-id-688 form.sf_form_light b {
+  font-size: 14px;
+}
+
 /* Astra renders the dropdown indicator as ::after on the link, using its icon
    font (missing from the mirror -> tofu square). Swap in a unicode caret. */
 .main-header-menu .menu-item-has-children > .menu-link::after {

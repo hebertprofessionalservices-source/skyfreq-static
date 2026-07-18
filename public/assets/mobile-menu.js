@@ -99,7 +99,7 @@
      inline button (styled by brand-2026.css). Skipped on pages where a
      "contact us" CTA is redundant. */
   document.addEventListener("DOMContentLoaded", function () {
-    var skip = ["/contact-us/", "/thank-you/", "/bill-pay/", "/terms-and-policies/"];
+    var skip = ["/contact-us/", "/thank-you/", "/bill-pay/", "/terms-and-policies/", "/about/"];
     if (skip.indexOf(location.pathname) !== -1) return;
     var wrap = document.querySelector(
       '[data-elementor-type="wp-page"], [data-elementor-type="wp-post"][data-elementor-post-type="page"]');
