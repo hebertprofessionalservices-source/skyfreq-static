@@ -160,7 +160,8 @@
    Section photos previously rendered at full column width (~620px); the
    client wants roughly half that as the default. Icons live inside UAEL
    infoboxes, not image widgets, so they are unaffected. */
-[data-elementor-type="wp-page"] .elementor-widget-image .elementor-widget-container img {
+[data-elementor-type="wp-page"] .elementor-widget-image .elementor-widget-container img,
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] .elementor-widget-image .elementor-widget-container img {
   max-width: 320px !important;
   height: auto !important;
 }
@@ -169,7 +170,9 @@
    (wp-page wrappers are exactly the /services pages; home/about/contact are
    wp-post wrappers and keep the CTA under the text or omit it) */
 [data-elementor-type="wp-page"] > .elementor-section:first-child > .elementor-container,
-[data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container {
+[data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container,
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child > .elementor-container,
+[data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child > .elementor-container {
   position: relative;
 }
 @media (min-width: 922px) {
@@ -179,11 +182,15 @@
   [data-elementor-type="wp-page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child,
   [data-elementor-type="wp-page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child > .elementor-widget-wrap,
   [data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container > .elementor-column:first-child,
-  [data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container > .elementor-column:first-child > .elementor-widget-wrap {
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child > .elementor-container > .elementor-column:first-child > .elementor-widget-wrap,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child > .elementor-container > .elementor-column:first-child > .elementor-widget-wrap {
     position: static !important;
   }
   [data-elementor-type="wp-page"] > .elementor-section:first-child .sf-hero-cta,
-  [data-elementor-type="wp-page"] > .elementor-top-section:first-child .sf-hero-cta {
+  [data-elementor-type="wp-page"] > .elementor-top-section:first-child .sf-hero-cta,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .sf-hero-cta,
+  [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .sf-hero-cta {
     position: absolute;
     right: max(24px, calc((100% - 1140px) / 2 + 10px));
     top: 8px;
@@ -193,7 +200,7 @@
 
 /* ---- contact page: tighter lead form (~20% smaller) ---- */
 body.page-id-688 form.sf_form_light {
-  max-width: 470px;
+  max-width: 540px;
 }
 body.page-id-688 form.sf_form_light input[type="text"],
 body.page-id-688 form.sf_form_light textarea {
