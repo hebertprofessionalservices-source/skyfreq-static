@@ -195,7 +195,7 @@ body.page-id-4 [data-elementor-post-type="page"] > .elementor-section:first-chil
    infoboxes, not image widgets, so they are unaffected. */
 [data-elementor-type="wp-page"] .elementor-widget-image .elementor-widget-container img,
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] .elementor-widget-image .elementor-widget-container img {
-  max-width: min(400px, 100%) !important;
+  max-width: min(460px, 100%) !important;
   height: auto !important;
 }
 /* photo polish to match the About page cards -- photos only; transparent
