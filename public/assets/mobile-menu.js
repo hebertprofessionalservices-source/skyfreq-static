@@ -93,4 +93,25 @@
       if (e.key === "Escape" && isOpen()) close();
     });
   });
+
+  /* ---- 2026 hero CTA ----
+     The redesigned single-column heroes lost the old white CTA card, so add an
+     inline button (styled by brand-2026.css). Skipped on pages where a
+     "contact us" CTA is redundant. */
+  document.addEventListener("DOMContentLoaded", function () {
+    var skip = ["/contact-us/", "/thank-you/", "/bill-pay/", "/terms-and-policies/"];
+    if (skip.indexOf(location.pathname) !== -1) return;
+    var wrap = document.querySelector(
+      '[data-elementor-type="wp-page"], [data-elementor-type="wp-post"][data-elementor-post-type="page"]');
+    if (!wrap) return;
+    var hero = wrap.querySelector(":scope > .elementor-section, :scope > .elementor-top-section");
+    if (!hero || hero.querySelector(".sf-hero-cta")) return;
+    var col = hero.querySelector(".elementor-column .elementor-widget-wrap");
+    if (!col) return;
+    var a = document.createElement("a");
+    a.className = "sf-hero-cta";
+    a.href = "/contact-us/";
+    a.textContent = "Get a Free Consultation";
+    col.appendChild(a);
+  });
 })();
