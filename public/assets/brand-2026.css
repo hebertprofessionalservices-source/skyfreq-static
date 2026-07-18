@@ -158,6 +158,11 @@
   line-height: 1.65 !important;
   max-width: 620px;
   opacity: .94;
+  text-wrap: pretty;   /* avoid single-word orphan lines */
+}
+/* home hero: balance the short paragraph into even lines */
+body.page-id-4 [data-elementor-post-type="page"] > .elementor-section:first-child .uael-infobox-text p {
+  text-wrap: balance;
 }
 
 /* hero CTA button (element injected by mobile-menu.js) */
