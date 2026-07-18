@@ -154,6 +154,14 @@
   word-break: normal !important;
 }
 
+/* Two stacked body paragraphs (an infobox blurb directly followed by a
+   text-editor paragraph) stacked their widget margin (20px) on top of the
+   paragraph margin (24px) = 44px, reading as two blank lines. Drop the widget
+   margin so only the paragraph's own margin remains — one blank line. */
+.elementor-widget-uael-infobox:has(+ .elementor-widget-text-editor) {
+  margin-bottom: 0 !important;
+}
+
 /* hero spacer widgets: dead vertical air from the old layout */
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-top-section:first-child .elementor-widget-spacer,
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child .elementor-widget-spacer,
