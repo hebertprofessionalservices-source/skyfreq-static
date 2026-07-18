@@ -1,31 +1,41 @@
 /* Sky Frequency 2026 rebrand accents.
-   The 2026 logo promotes orange (#FA8B09, the "NETWORKS" wordmark) to a primary
-   brand accent. Applied here to calls-to-action site-wide. Navy (#192546) and
+   Brand orange #F28707 is sampled from the 2026 logo's "NETWORKS" wordmark
+   (its gradient averages to this value) — every orange on the site must use
+   this one hex. Applied to calls-to-action site-wide. Navy (#192546) and
    blue remain; blue is still present in the logo mark. */
 
-/* Elementor CTA buttons (CONTACT US, LET'S TALK, Read More buttons) */
+/* Elementor CTA buttons (CONTACT US, LET'S TALK, Read More buttons).
+   The mirrored theme CSS leaves some of these (Read More) unpadded, so a
+   background alone reads as highlighted text — force full pill styling. */
 .elementor-button,
 .elementor-button-link {
-  background-color: #FA8B09 !important;
+  background-color: #F28707 !important;
+  display: inline-block;
+  padding: 12px 26px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  line-height: 1.2;
 }
 .elementor-button:hover,
 .elementor-button-link:hover {
-  background-color: #d97507 !important;
+  background-color: #d97506 !important;
 }
 
 /* Salesforce lead-form submit buttons */
 .sf_form input[type="submit"] {
-  background-color: #FA8B09 !important;
-  border-color: #FA8B09 !important;
+  background-color: #F28707 !important;
+  border-color: #F28707 !important;
 }
 .sf_form input[type="submit"]:hover {
-  background-color: #d97507 !important;
-  border-color: #d97507 !important;
+  background-color: #d97506 !important;
+  border-color: #d97506 !important;
 }
 
 /* Mobile menu call button (defined in mobile-menu.js) */
 #sfmenu-panel .sfmenu-call {
-  background: #FA8B09 !important;
+  background: #F28707 !important;
 }
 
 /* Header logo sizing: the 2026 lockup is wider than the old SVG.
@@ -173,7 +183,7 @@ body.page-id-4 [data-elementor-post-type="page"] > .elementor-section:first-chil
 .sf-hero-cta {
   display: inline-block;
   margin-top: 26px;
-  background: #FA8B09;
+  background: #F28707;
   color: #fff !important;
   font-weight: 700;
   font-size: 15px;
@@ -185,7 +195,7 @@ body.page-id-4 [data-elementor-post-type="page"] > .elementor-section:first-chil
   box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
   transition: none;
 }
-.sf-hero-cta:hover { background: #d97507; color: #fff; }
+.sf-hero-cta:hover { background: #d97506; color: #fff; }
 
 /* ---- nav: Services submenu arrow (Astra icon font is missing; the empty
         glyph rendered as a small square). Draw it with a unicode caret. ---- */
@@ -204,12 +214,12 @@ body.page-id-4 [data-elementor-post-type="page"] > .elementor-section:first-chil
 [data-elementor-type="wp-post"][data-elementor-post-type="page"] .elementor-widget-image .elementor-widget-container img[src$=".jpg"] {
   border-radius: 12px;
   /* brand-orange offset block reads as the photo's "shadow" */
-  box-shadow: 14px 14px 0 rgba(250, 139, 9, .28), 0 8px 24px rgba(25, 37, 70, .14);
+  box-shadow: 14px 14px 0 rgba(242, 135, 7, .28), 0 8px 24px rgba(25, 37, 70, .14);
 }
 @media (max-width: 921px) {
   [data-elementor-type="wp-page"] .elementor-widget-image .elementor-widget-container img[src$=".jpg"],
   [data-elementor-type="wp-post"][data-elementor-post-type="page"] .elementor-widget-image .elementor-widget-container img[src$=".jpg"] {
-    box-shadow: 9px 9px 0 rgba(250, 139, 9, .28), 0 8px 24px rgba(25, 37, 70, .14);
+    box-shadow: 9px 9px 0 rgba(242, 135, 7, .28), 0 8px 24px rgba(25, 37, 70, .14);
   }
 }
 
