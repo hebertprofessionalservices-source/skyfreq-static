@@ -139,7 +139,7 @@
       reply: "Yes — we provide on-demand service and support after installation. One call, and it's handled." + CTA },
 
     /* -- company -- */
-    { re: /(what (does|do) (skyfreq|sky frequency|you|y'?all) do|about (you|the company|skyfreq)|who are you|integrator)/,
+    { re: /(what (does|do|is|are) (skyfreq\w*|sky ?frequency|you|y'?all)|what do (you|y'?all) do|about (you|the company|skyfreq)|who are you|integrator)/,
       reply: SERVICES_HTML },
     { re: /(what|which).{0,20}(business|industr|client|customer|compan).{0,12}(serve|work)/,
       reply: "We work with organizations of every size — retail, convenience stores, restaurants, offices, " +
