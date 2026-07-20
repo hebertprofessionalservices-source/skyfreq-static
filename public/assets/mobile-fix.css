@@ -21,12 +21,20 @@
 
   /* ---- menu toggle: unicode icons, no font dependency ---- */
   .menu-toggle {
+    display: inline-flex !important;         /* center ☰ + "Menu" both axes */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px;
+    line-height: 1 !important;
     background: transparent !important;
     border: 1px solid rgba(255, 255, 255, .35) !important;
     border-radius: 6px !important;
     color: #fff !important;
-    padding: 6px 12px !important;
+    padding: 8px 14px !important;
   }
+  .menu-toggle .ast-icon,
+  .menu-toggle .mobile-menu-wrap { display: inline-flex !important; align-items: center !important; }
+  .menu-toggle .mobile-menu { line-height: 1 !important; }
   .menu-toggle .menu-toggle-icon::before {
     content: "\2630" !important;             /* ☰ */
     font-family: inherit !important;

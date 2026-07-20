@@ -69,7 +69,7 @@
   [data-elementor-type="wp-post"][data-elementor-post-type="page"] > .elementor-section:first-child,
   [data-elementor-type="wp-page"] > .elementor-top-section:first-child,
   [data-elementor-type="wp-page"] > .elementor-section:first-child {
-    padding-top: 104px !important;
+    padding-top: 140px !important;   /* clear the 129px absolute mobile header */
     padding-bottom: 36px !important;
   }
 }

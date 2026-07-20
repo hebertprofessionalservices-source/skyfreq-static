@@ -17,3 +17,6 @@ desktop.ini
 
 # --- Node (only if a build tooling is added later) ---
 node_modules/
+
+# PowerPoint deliverable + build assets (not part of the website)
+output/
