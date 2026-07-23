@@ -33,6 +33,17 @@
   border-color: #d97506 !important;
 }
 
+/* Top-bar social icons (Facebook / Instagram / TikTok) + phone link */
+.sf-topbar {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 16px;
+}
+.sf-topbar .sf-soc { display: inline-flex; color: #fff; line-height: 1; }
+.sf-topbar .sf-soc:hover { color: #F28707; }
+.sf-topbar .sf-soc svg { width: 19px; height: 19px; fill: currentColor; display: block; }
+.sf-topbar .sf-phone { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+
 /* Mobile menu call button (defined in mobile-menu.js) */
 #sfmenu-panel .sfmenu-call {
   background: #F28707 !important;
