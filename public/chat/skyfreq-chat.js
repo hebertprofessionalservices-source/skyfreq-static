@@ -170,7 +170,7 @@
       reply: SERVICES_HTML },
     { re: /(team|staff|technician|who works)/,
       reply: 'Meet our leadership team on the <a href="/about/">About page</a> — Wade Spooner (President/CEO), ' +
-             "Ted Parsons (EVP/CMO) and Wesley Spooner (Director of IT and Network Services)." },
+             "Ted Parsons (EVP/CMO) and Wesley Spooner (EVP, IT &amp; Network Operations)." },
     { re: /(job|career|hiring|work for)/,
       reply: "We don't post openings on the site, but you're welcome to reach out at " + EMAIL_LINK + "." },
     { re: /(contact|reach|call|email|talk|speak|human|person|representative)/,
