@@ -45,17 +45,26 @@
 .sf-topbar .sf-phone { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
 .sf-topbar .sf-phone .sf-phone-ic { width: 22px; height: 22px; fill: #7befb2; display: block; }
 
-/* Contact page: social icon row above the text + form (TikTok · Facebook · Instagram) */
+/* Contact page: social icon row above the text + form (TikTok · Facebook · Instagram).
+   The section has 120px built-in top padding; the negative margin cancels it so
+   the row's own symmetric padding centers the icons exactly between the hero
+   and the text/form below. */
 .sf-contact-social {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 34px;
-  padding: 46px 20px 0;
+  gap: 44px;
+  margin-top: -120px;
+  padding: 64px 20px;
 }
 .sf-contact-social a { display: inline-flex; color: #192546; }
 .sf-contact-social a:hover { color: #F28707; }
-.sf-contact-social svg { width: 42px; height: 42px; fill: currentColor; display: block; }
+.sf-contact-social svg { width: 84px; height: 84px; fill: currentColor; display: block; }
+@media (max-width: 921px) {
+  /* mobile: the section has no built-in top padding, so no offset to cancel */
+  .sf-contact-social { gap: 30px; margin-top: 0; padding: 40px 20px; }
+  .sf-contact-social svg { width: 64px; height: 64px; }
+}
 
 /* Mobile menu call button (defined in mobile-menu.js) */
 #sfmenu-panel .sfmenu-call {
