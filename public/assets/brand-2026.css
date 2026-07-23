@@ -45,6 +45,18 @@
 .sf-topbar .sf-phone { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
 .sf-topbar .sf-phone .sf-phone-ic { width: 22px; height: 22px; fill: #7befb2; display: block; }
 
+/* Contact page: social icon row above the text + form (TikTok · Facebook · Instagram) */
+.sf-contact-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  padding: 46px 20px 0;
+}
+.sf-contact-social a { display: inline-flex; color: #192546; }
+.sf-contact-social a:hover { color: #F28707; }
+.sf-contact-social svg { width: 42px; height: 42px; fill: currentColor; display: block; }
+
 /* Mobile menu call button (defined in mobile-menu.js) */
 #sfmenu-panel .sfmenu-call {
   background: #F28707 !important;
