@@ -44,8 +44,6 @@
 .sf-topbar .sf-soc svg { width: 19px; height: 19px; fill: currentColor; display: block; }
 .sf-topbar .sf-phone { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
 .sf-topbar .sf-phone .sf-phone-ic { width: 22px; height: 22px; fill: #7befb2; display: block; }
-/* Facebook's glyph is bottom-weighted in its viewBox; optically recenter */
-.sf-topbar .sf-soc:first-child svg { position: relative; top: -1px; }
 
 /* Mobile menu call button (defined in mobile-menu.js) */
 #sfmenu-panel .sfmenu-call {
