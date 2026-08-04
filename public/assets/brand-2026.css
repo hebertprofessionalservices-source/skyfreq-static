@@ -66,6 +66,192 @@
   .sf-contact-social svg { width: 64px; height: 64px; }
 }
 
+/* ---- Services carousel (home) & testimonial slider (about) ----
+   Slides are absolutely stacked; sf-widgets.js sets the viewport height and
+   rotates slides. Real browsers animate (slide + fade); the JS also snaps
+   final inline styles on a timer so environments without transitions still
+   land in the correct end state. */
+.sf-svc-carousel { max-width: 1140px; margin: 0 auto; padding: 64px 20px 40px; }
+.sf-svc-viewport { position: relative; overflow: hidden; }
+.sf-svc-slide {
+  position: absolute; inset: 0 0 auto 0;
+  display: flex; align-items: center; gap: 54px;
+  opacity: 0; transform: translateX(64px);
+  transition: opacity .55s ease, transform .55s ease;
+  pointer-events: none;
+}
+.sf-svc-slide.from-left { transform: translateX(-64px); }
+.sf-svc-slide.is-active { opacity: 1; transform: none; pointer-events: auto; }
+.sf-svc-slide.is-leaving { opacity: 0; transform: translateX(-64px); }
+.sf-svc-slide.is-leaving-r { opacity: 0; transform: translateX(64px); }
+
+/* prev/next arrows (injected by sf-widgets.js) */
+.sf-svc-carousel { position: relative; }
+.sf-rot-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  box-sizing: border-box !important;
+  width: 46px !important; height: 46px !important;
+  padding: 0 !important; min-width: 0 !important;
+  border-radius: 50% !important; border: none !important; cursor: pointer;
+  background: #192546 !important; color: #fff !important; font-size: 17px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(25, 37, 70, .25);
+  z-index: 5;
+}
+.sf-rot-arrow:hover { background: #F28707 !important; }
+.sf-rot-prev { left: -58px; }
+.sf-rot-next { right: -58px; }
+/* below ~1280 there's no room outside the container; drop arrows to the bottom
+   corners instead of overlapping the slide content */
+@media (max-width: 1279px) {
+  .sf-rot-arrow { width: 38px !important; height: 38px !important; font-size: 14px; top: auto; bottom: 26px; transform: none; }
+  .sf-rot-prev { left: 12px; }
+  .sf-rot-next { right: 12px; }
+}
+.sf-svc-text { flex: 1 1 55%; }
+.sf-svc-text h2 { color: #192546; font-size: 30px; line-height: 1.2; margin: 0 0 18px; }
+.sf-svc-text p { color: #4b4f58; font-size: 16px; line-height: 1.55; margin: 0 0 16px; max-width: 560px; }
+.sf-svc-text .elementor-button { margin-top: 6px; }
+.sf-svc-img { flex: 1 1 45%; display: flex; justify-content: center; }
+.sf-svc-img img { max-width: min(440px, 100%); height: auto; }
+.sf-svc-img img[src$=".jpg"] {
+  border-radius: 12px;
+  box-shadow: 14px 14px 0 rgba(242, 135, 7, .28), 0 8px 24px rgba(25, 37, 70, .14);
+}
+.sf-svc-dots { display: flex; justify-content: center; gap: 10px; padding-top: 34px; }
+.sf-svc-dots button {
+  width: 11px; height: 11px; border-radius: 50%; border: none; padding: 0;
+  background: #ccd4e2; cursor: pointer;
+}
+.sf-svc-dots button.is-on { background: #F28707; }
+@media (max-width: 921px) {
+  .sf-svc-carousel { padding: 40px 18px 32px; }
+  .sf-svc-slide { flex-direction: column; gap: 26px; text-align: center; }
+  .sf-svc-text p { margin-left: auto; margin-right: auto; }
+  .sf-svc-img img { max-width: min(320px, 100%); }
+  .sf-svc-img img[src$=".jpg"] { box-shadow: 9px 9px 0 rgba(242, 135, 7, .28), 0 8px 24px rgba(25, 37, 70, .14); }
+}
+
+/* ---- About: testimonial slider (placeholder content until client sends real ones) ---- */
+.sf-tsl { max-width: 860px; margin: 0 auto; padding: 30px 20px 72px; text-align: center; position: relative; }
+.sf-tsl h2 { color: #192546; font-size: 34px; margin: 42px 0 8px; }
+.sf-tsl-rule { width: 64px; height: 4px; background: #F28707; border-radius: 2px; margin: 0 auto 38px; }
+.sf-tsl-viewport { position: relative; overflow: hidden; }
+.sf-tsl-slide {
+  position: absolute; inset: 0 0 auto 0;
+  opacity: 0; transform: translateX(64px);
+  transition: opacity .55s ease, transform .55s ease;
+  pointer-events: none;
+  padding: 0 8px;
+}
+.sf-tsl-slide.is-active { opacity: 1; transform: none; pointer-events: auto; }
+.sf-tsl-slide.is-leaving { opacity: 0; transform: translateX(-64px); }
+.sf-tsl-stars { color: #F28707; font-size: 22px; letter-spacing: 4px; margin-bottom: 14px; }
+.sf-tsl-quote { color: #35405e; font-size: 19px; line-height: 1.6; font-style: italic; margin: 0 auto 24px; max-width: 720px; }
+.sf-tsl-who { display: flex; align-items: center; justify-content: center; gap: 13px; }
+.sf-tsl-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #192546; color: #fff; font-weight: 700; font-size: 18px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.sf-tsl-name { text-align: left; display: inline-block; }
+.sf-tsl-name b { display: block; color: #192546; font-size: 16px; }
+.sf-tsl-name span { display: block; color: #5a6b8c; font-size: 13px; margin-top: 2px; }
+.sf-tsl-dots { display: flex; justify-content: center; gap: 10px; padding-top: 30px; }
+.sf-tsl-dots button {
+  width: 11px; height: 11px; border-radius: 50%; border: none; padding: 0;
+  background: #ccd4e2; cursor: pointer;
+}
+.sf-tsl-dots button.is-on { background: #F28707; }
+@media (max-width: 921px) {
+  .sf-tsl h2 { font-size: 26px; }
+  .sf-tsl-quote { font-size: 16.5px; }
+}
+
+/* ---- Global footer CTA card (replaces the old 3-column footer contact strip).
+   Semi-transparent card centered over the green tech background so the image
+   shows through; contacts stacked under the LET'S TALK button. ---- */
+.sf-footer-cta {
+  position: relative;
+  background: url("/wp-content/uploads/2019/09/pic09-free-img.jpg") center/cover no-repeat;
+  padding: 0 20px;
+  margin: 34px 0;
+  display: flex;
+  justify-content: center;
+}
+.sf-footer-cta::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(200deg, #040428 0%, #57aa6e 100%);
+  opacity: .82;
+}
+.sf-footer-cta-card {
+  position: relative; z-index: 1;
+  background: #fff;
+  max-width: 790px; width: 100%;
+  text-align: center;
+  padding: 40px 48px 36px;
+  margin: -34px 0;   /* card pokes above and below the green band */
+  border: 1px solid rgba(255, 255, 255, .65);
+  box-shadow: 0 10px 30px rgba(4, 4, 40, .35), 0 2px 8px rgba(4, 4, 40, .22);
+}
+.sf-footer-cta-card h3 { color: #192546; font-size: 30px; margin: 0 0 8px; }
+.sf-fc-sub { color: #4b4f58; font-size: 16px; margin: 0 0 6px; }
+.sf-fc-contacts {
+  margin-top: 22px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(25, 37, 70, .18);
+  display: flex; flex-direction: row; justify-content: center;
+  gap: 56px; flex-wrap: wrap;
+}
+.sf-fc-item span { display: block; color: #5a6b8c; font-size: 13px; letter-spacing: .3px; margin-bottom: 2px; }
+.sf-fc-item a {
+  color: #192546 !important; font-weight: 700; font-size: 19px;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.sf-fc-item a:hover { color: #F28707 !important; }
+.sf-footer-cta-card .sf-fc-btn {
+  margin-top: 24px;
+  padding: 12px 27px !important;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+@media (max-width: 921px) {
+  .sf-footer-cta { padding: 0 16px; margin: 24px 0; }
+  .sf-footer-cta-card { padding: 30px 22px 28px; margin: -24px 0; }
+  .sf-footer-cta-card h3 { font-size: 25px; }
+  .sf-fc-contacts { flex-direction: column; gap: 16px; }
+  .sf-fc-item a { font-size: 17px; }
+}
+
+/* Services dropdown: show labels as typed (title case). The forced uppercase
+   made typed capitals render at a different optical size than transformed
+   lowercase on some systems ("big S" effect) — and the new long service names
+   read better in title case anyway. */
+.main-header-menu .sub-menu .menu-link {
+  text-transform: none !important;
+  font-variant: normal !important;
+  font-variant-caps: normal !important;
+  font-size: 12.5px !important;
+  letter-spacing: .3px;
+}
+
+/* ---- Site font: replace Oxygen with a well-hinted system stack ----
+   Oxygen's round letters (S, O, C, G) carry optical overshoot that Windows
+   rasterizes a pixel taller at UI sizes, making S's look oversized in caps
+   ("LET'S TALK", the nav). Segoe UI/Roboto/Arial are metrically similar and
+   render cleanly. Icon fonts (.fa/.fas) are untouched - their own rules win
+   over inheritance. */
+body, h1, h2, h3, h4, h5, h6,
+.main-header-menu .menu-link, .menu-toggle,
+.elementor-button, .elementor-button-text,
+.elementor-heading-title,
+.uael-infobox-title, .uael-infobox-title-prefix, .uael-infobox-text,
+input, select, textarea, .sf_form,
+.sf-hero-cta {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
 /* Mobile menu call button (defined in mobile-menu.js) */
 #sfmenu-panel .sfmenu-call {
   background: #F28707 !important;

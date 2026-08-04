@@ -3,16 +3,43 @@
   "outputDirectory": "public",
   "trailingSlash": true,
   "redirects": [
-    { "source": "/team", "destination": "/about/", "permanent": true },
-    { "source": "/team/", "destination": "/about/", "permanent": true }
+    {
+      "source": "/bill-pay",
+      "destination": "/invoice-management/",
+      "permanent": true
+    },
+    {
+      "source": "/bill-pay/",
+      "destination": "/invoice-management/",
+      "permanent": true
+    },
+    {
+      "source": "/team",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/team/",
+      "destination": "/about/",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]

@@ -65,7 +65,7 @@
 
     /* -- billing -- */
     { re: /(pay|bill|invoice|payment|owe)/,
-      reply: 'You can pay your invoice online through our <a href="/bill-pay/">Bill &amp; Pay portal</a>. ' +
+      reply: 'You can pay your invoice online through our <a href="/invoice-management/">Bill &amp; Pay portal</a>. ' +
              "Billing question? Call us at " + PHONE_LINK + "." },
 
     /* -- cabling (before internet: "CAT6 and fiber" must not hit the internet intent) -- */
