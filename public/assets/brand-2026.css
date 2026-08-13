@@ -71,6 +71,10 @@
    rotates slides. Real browsers animate (slide + fade); the JS also snaps
    final inline styles on a timer so environments without transitions still
    land in the correct end state. */
+/* home: the client-logo column keeps a legacy 78.9% width from the old
+   two-column layout (post-4.css) but nothing centers it — do that here */
+.elementor-4 .elementor-element.elementor-element-58303d41 { margin: 0 auto; }
+
 .sf-svc-carousel { max-width: 1140px; margin: 0 auto; padding: 64px 20px 40px; }
 .sf-svc-viewport { position: relative; overflow: hidden; }
 .sf-svc-slide {

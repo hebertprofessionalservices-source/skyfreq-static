@@ -21,12 +21,12 @@
     {
       "source": "/projects",
       "destination": "/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/projects/",
       "destination": "/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/team/",
